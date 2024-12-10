@@ -1,4 +1,4 @@
-                                                       EcoShoppe: An E-Commerce Website for Eco-friendly Products
+                                                      EcoShoppe: An E-Commerce Website for Eco-friendly Products
 EcoShoppe is an online platform dedicated to promoting eco-friendly products by offering a seamless shopping experience. The website allows users to browse and purchase sustainable products with ease while ensuring secure user authentication, efficient product search, and a personalized shopping experience.
 
 Key Features:
