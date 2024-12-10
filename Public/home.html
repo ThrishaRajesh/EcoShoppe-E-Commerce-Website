@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoShoppe</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="bg-success text-white py-3">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="Product.html">Products</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="cart.html">My Cart</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="aboutus.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <h1 class="mx-auto">EcoShoppe</h1>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-bar py-4">
+      <div class="container text-center">
+        <input type="text" id="searchInput" class="form-control w-50 mx-auto" placeholder="Looking for...">
+        <button class="btn btn-success mt-2" onclick="searchProducts()">Search</button>
+      </div>
+    </section>
+
+    <section class="featured-products py-4">
+      <div class="container">
+        <h3 class="text-center">Eco-Friendly Finds: Special Offers!!</h3>
+        <div class="row" id="productCards">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-success text-white py-3">
+    <div class="container text-center">
+      <p>&copy; 2024 EcoShoppe. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+
+    const products = [
+      {
+        title: "Plantable Seed Rakhi",
+        subtitle: "Combo Pack of 3 Rakhis",
+        imageUrl: "https://m.media-amazon.com/images/I/81qK4x3bCfL._SX679_.jpg",
+        mrp: 250,
+        discountPrice: 199,
+        discountPercentage: 20,
+        description: "This Raksha Bandhan, fix up all your bickerings in a return gift from your siblings with this thoughtfully hand-crafted biodegradable rakhi."
+      },
+      {
+        title: "Cotton Fabric National Flag",
+        subtitle: "20\" x 30\" | Combo Pack Of 2 Flags",
+        imageUrl: "https://m.media-amazon.com/images/I/61JGRK3wv1L._SX679_.jpg",
+        mrp: 550,
+        discountPrice: 450,
+        discountPercentage: 18,
+        description: "Show your pride this 77<sup>th</sup> Independence Day with our high-quality Cotton Fabric Indian National Flag. Perfect for celebrations and a symbol of national unity. Get yours today!"
+      },
+      {
+        title: "Handcrafted Mud/Clay Ganesh and Gowri Idols",
+        subtitle: "1\' 5\" Ganesha Idol | 4\" Gouri Idol",
+        imageUrl: "https://www.mudfingers.com/cdn/shop/products/Gowri-Ganesha3_933x1244.jpg?v=1628772022",
+        mrp: 1299,
+        discountPrice: 899,
+        discountPercentage: 38,
+        description: "This Ganesha Chaturthi, lets all go green and eco-friendly.Tulasi plant seeds are put inside this clay idols. We can do the Visarjan of these idols at home and use the soil in this to grow Tulasi."
+      },
+      {
+        title: "Clay/Wood made Varamahalakshmi Idol Set",
+        subtitle: "20\" | Multicolour",
+        imageUrl: "https://m.media-amazon.com/images/I/41JQ3rdUkNL.jpg",
+        mrp: 2999,
+        discountPrice: 1599,
+        discountPercentage: 47,
+        description: "Embrace the Varamahalakshmi festival with our eco-friendly goddess idol set. Perfect for a traditional yet sustainable celebration!"
+      },
+      {
+        title: "Handcrafted Wooden Butter Pot with Flute Set",
+        subtitle: " Plus Ceiling Wall Hanging Showpiece",
+        imageUrl: "https://m.media-amazon.com/images/I/71WQLYeC7nL._SX679_.jpg",
+        mrp: 1499,
+        discountPrice: 1099,
+        discountPercentage: 27,
+        description: "Handmade decorative pot and flute set, perfect for Krishna. Adds a sustainable touch to any space and makes a thoughtful gift."
+      },
+      {
+        title: "Navadurga Face Set of 9",
+        subtitle: "8\" x 4\" | Aluminium",
+        imageUrl: "https://images.meesho.com/images/products/331490529/pmxcu_512.webp",
+        mrp: 2999,
+        discountPrice: 1699,
+        discountPercentage: 43,
+        description: "Crafted from recyclable aluminum, this set combines traditional artistry with eco-conscious materials and offers a stunning tribute to the divine Navadurga."
+      }
+    ];
+
+
+    
+    function generateProductCards() {
+  const productContainer = document.getElementById('productCards');
+  products.forEach(product => {
+    const cardHTML = `
+      <div class="col-md-4 product-card">
+        <div class="card">
+          <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+          <div class="card-body">
+            <h5 class="card-title">${product.title}<br><small>${product.subtitle}</small></h5>
+            <p class="product-price">
+              M.R.P: &#8377;<del>${product.mrp}</del><br>
+              <b>Discount Price: &#8377; ${product.discountPrice}</b><br>
+              <strong>${product.discountPercentage}% off</strong>
+            </p>
+            <p class="card-text">${product.description}</p>
+            <div class="quantity-controls">
+              <button class="btn btn-secondary btn-decrease">-</button>
+              <input type="text" class="quantity-input form-control w-25 mx-auto" value="1" readonly>
+              <button class="btn btn-secondary btn-increase">+</button>
+            </div>
+            <button class="btn btn-success add-to-cart-btn mt-2">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    `;
+    productContainer.innerHTML += cardHTML;
+  });
+}
+
+    document.addEventListener('DOMContentLoaded', generateProductCards);
+  </script>
+</body>
+
+</html>

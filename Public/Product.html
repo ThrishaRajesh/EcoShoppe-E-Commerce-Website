@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - EcoShoppe</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-card {
+            margin-bottom: 2 rem;
+        }
+
+        .card-img-top {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+            max-height: 280px;
+            transition: transform 0.3s;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+        }
+
+        .card {
+  border: 1px solid darkslategrey; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease; 
+}
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+
+        .product-price {
+            font-size: 1.25rem;
+            color: #28a745;
+        }
+
+        .search-bar input {
+            border: 2px solid #28a745;
+            border-radius: 20px;
+        }
+
+        .search-bar button {
+            border-radius: 20px;
+        }
+        /* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.quantity-controls .btn {
+  border: 1px solid #28a745; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding inside buttons */
+  font-size: 1rem; /* Font size */
+  color: #fff; /* Text color */
+  background-color: #28a745; /* Background color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+}
+
+.quantity-controls .btn:hover {
+  background-color: #218838; /* Darker green for hover */
+  color: #fff; /* Maintain text color on hover */
+}
+
+.quantity-controls .quantity-input {
+  width: 60px; /* Fixed width for quantity input */
+  text-align: center; /* Center text */
+  border: 1px solid #28a745; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  margin: 0 0.5rem; /* Margin on sides */
+}
+
+.quantity-controls .quantity-input:focus {
+  outline: none; /* Remove outline */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow on focus */
+}
+    </style>
+</head>
+
+<body>
+    <header class="bg-success text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="Product.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="cart.html">My Cart</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="aboutus.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <h1 class="mx-auto">EcoShoppe</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-bar py-4">
+            <div class="container text-center">
+                <input type="text" id="searchInput" class="form-control w-50 mx-auto" placeholder="Looking for...">
+                <button class="btn btn-success mt-2" onclick="searchProducts()">Search</button>
+            </div>
+        </section>
+
+        <section class="featured-products py-4">
+            <div class="container">
+                <h3 class="text-center">Exclusive Green Sales!!</h3>
+                <div class="row" id="productCards">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-success text-white py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 EcoShoppe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const products = [
+            {
+                title: "Beeswax Food Wraps - Pack of 7 ",
+                subtitle: "2 \'S\' - (7\" x 8\") | 3 \'M\' - (10\" x 11\") | 2 \'L\' - (13\" x 14\")",
+                imageUrl: "https://m.media-amazon.com/images/I/81-RFKZmXML.AC_UF894,1000_QL80.jpg",
+                mrp: "1049",
+                description: "Alternative to plastic - cotton, jojoba oil, ethically harvest beeswax, and tree resin made. Money saver, reuasble and washablbles.Retains food freshness."
+            },
+            {
+                title: "Handcrafted Jute Slings",
+                subtitle: "Coin Beaded | Crossbody Sling ",
+                imageUrl: "https://m.media-amazon.com/images/I/915p1jGAJpL.SY695.jpg",
+                mrp: "885",
+                description: "Each sling is meticulously crafted from natural jute and adorned with beads in natural colors, offering a unique blend of durability and elegance."
+            },
+            {
+                title: "Bamboo Toothbrushes - Pack of 4",
+                subtitle: "Soft Bristles | Waterproof | Splinter free | BPA free",
+                imageUrl: "https://brownliving.in/cdn/shop/products/bamboo-toothbrushes-pack-of-4-soft-bristles-multicolor-adult-095-07065-terrabrush-bamboo-toothbrushes-pack-of-4-soft-tooth-brush-brown-living-272497_500x.jpg?v=1682960637",
+                mrp: "299",
+                description: "Durable Soft bristles perfect add on to your Eco-Friendly kit. Handle and Package are 100% biodegradable."
+            },
+            {
+                title: "E-CUP Wheat Fiber Mug",
+                subtitle: "Capacity: 350ml | Natural Cork Grip | Anti Bacterial | Spill Proof Lid ",
+                imageUrl: "https://imagesm.plexussquare.in/URBANGEAR/Images/29-11-2023/1701258904728.jpeg",
+                mrp: "499",
+                description: "These E-cups boasts a natural grip for comfortable handling and a unique composition that resists bacterial growth, ensuring a hygienic drinking experience."
+            },
+            {
+                title: "Biodegradable Seedling Trays",
+                subtitle: "6 Trays | 6 labels | 10 pots in each",
+                imageUrl: "https://www.greenthumbz.co.uk/cdn/shop/products/1_Bio_Tray_6_v2_900x.jpg?v=1647273737",
+                mrp: "249",
+                description: "These support the growth of fruits, vegetables, and flowers, becoming organic fertilizer after use.Offers easy transfer and improved seedling survival rates by preserving roots and original soil. "
+            },
+            {
+                title: "Eco-One Greenbin Compostable Garbage Trash Bags",
+                subtitle: "Eco-Friendly Compost Bags (\'M\'size) | 90 bags",
+                imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRIMmh2KyBujZLERckr_LkwSE_RlUVuId1e4SdgK1-icRoSS-DtcMbVXzqipcZeJhDVg4xl3oMQeIqFlDm1Ut-7A5HpxpMqKA",
+                mrp: "669",
+                description: "Keep your workplace clean and green with our compostable garbage bags. Ideal for food waste and office supplies, they're a sustainable choice for any setting."
+            },
+            {
+                title: "Eco-Laundry Detergent Sheets",
+                subtitle: "Pack of 10 | 1 Sheet = 1 Load | (Phosphates + Chlorine) free",
+                imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT1lf2WfsgI17DqZChLFf_OyAYJ-iQ5q4ZT7OSmc6vWZCby-RuI3maHBIR_YvSaRtZuNtLfCMZzDe5fuQWd3Yr33sA877rTxqbm1GcESJB4xOdmlMUPO_dr-A",
+                mrp: "109",
+                description: "Enjoy powerful cleaning with SuperBottoms sheets. Lightweight, pre-measured, and perfect for both machine and hand wash."
+            },
+            {
+                title: "Custom Recycled Notebook with Pen",
+                subtitle: "Premium A5 Notebook | Add Your Design or Logo",
+                imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRiAmeX-iQcwgGd1RdxXTMqozmc_SegAKwbnCV8jKqeT8e0jMy3pQQCeX2EVQCjOGMvnqGAgE8b6ml4AXIIuJdEoP17cgupQvlx3FKnTBXj_j5-63PQcKN2",
+                mrp: "179",
+                description: "High-quality recycled paper ensures a smooth writing. The notebook is complemented by an aesthetically matching recycled pen."
+            },
+            {
+                title: "Solar LED Pathway Light",
+                subtitle: "IP65 Waterproof rating | 15 hours of illumination | 10 colour modes",
+                imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQjW1aOzf5C9zSwM3epS7UH8FMulStjcMp1G8kTpy_Gba3SFgDVdUFPrnZI3e6G53SesOaQnSL8H5jlC4mIrBridagGChOlGQ&usqp=CAY",
+                mrp: "479",
+                description: "Brighten your garden or walkway with this Solar LED Pathway Light. Powered by renewable solar energy, it features durable ABS construction."
+            },
+            {
+                title: "Eco-Friendly Evil Eye Bracelets",
+                subtitle: "Set of 2 | Adjustable Friendship Bands for Besties",
+                imageUrl: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcThBNQdea5ieBXVmaWUWMZhOj65N2EtcaKJrPE_OgFGKqVp4udbv5QKsRNS9EvSR-Qxnvxl53S_ismNbxgiN6osPf7pcJN6VEWjgHYFz9M",
+                mrp: "119",
+                description: "Celebrate Friendship Day with these eco-friendly Evil Eye Bracelets. Made from sustainable cotton and jute, this set of two adjustable bands is a thoughtful gift for your best friends."
+            },
+            {
+                title: "Edible PRO Beetroot Spoons",
+                subtitle: "Pack of 20 ",
+                imageUrl: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRaPi6wq9XwBB41gd3Fo3NLs2AztmXvssPsQaCVaT3Df-EWzCtQERRzh9B9-Hps0GUAsQbIciZSLHhRfgZY335m7RvDGipLdw&usqp=CAY",
+                mrp: "149",
+                description: "Enjoy sustainability with these edible beetroot spoons. Each pack contains 20 spoons that are both compostable and flavorful, making them a perfect eco-friendly choice for your dining needs."
+            },
+            {
+                title: "Yummme Organic Coconut Lip Balm",
+                subtitle: "Nourishing Coconut Lip Balm with USDA Certified Organic Ingredients",
+                imageUrl: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRDxTZDWdEAH48CtoUAMaRklyoyFHNIjc9nY-OLTuGKmcJx1dOzvg8mBFkCB92s0H3SBalv40yoLWErrMhkgHL6XE_i0g0Ub4qR118CsoXb79vcORnuzAOI_A&usqp=CAE",
+                mrp: "369",
+                description: "Pamper your lips with our Yummme Organic Coconut Lip Balm, enriched with coconut oil, beeswax, and herbal extracts. Its delightful aroma and moisturizing properties keep your lips soft and protected"
+            }
+        ];
+
+        const productContainer = document.getElementById('productCards');
+
+products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('col-md-4', 'product-card');
+    productCard.innerHTML = `
+        <div class="card">
+            <img src="${product.imageUrl}" class="card-img-top" alt="${product.title}">
+            <div class="card-body">
+                <h5 class="card-title">${product.title}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${product.subtitle}</h6>
+                <p class="product-price">&#8377;${product.mrp}</p>
+                <p class="card-text">${product.description}</p>
+                <!-- Quantity Controls -->
+                <div class="quantity-controls">
+                    <button class="btn btn-secondary btn-decrease">-</button>
+                    <input type="text" class="quantity-input" value="1" readonly>
+                    <button class="btn btn-secondary btn-increase">+</button>
+                </div>
+                <!-- Add to Cart Button -->
+                <button class="btn btn-success add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    `;
+    productContainer.appendChild(productCard);
+});
+
+    </script>
+</body>
+
+</html>
