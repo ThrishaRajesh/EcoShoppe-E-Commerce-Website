@@ -8,7 +8,7 @@ EcoShoppe is a modern, sustainable e-commerce platform dedicated to promoting ec
 
 ---
 
-## 🌿 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Key Features](#key-features)
@@ -24,7 +24,7 @@ EcoShoppe is a modern, sustainable e-commerce platform dedicated to promoting ec
 
 ---
 
-## 🌍 Overview
+## Overview
 
 EcoShoppe is an innovative platform that bridges the gap between eco-conscious consumers and sustainable products. From biodegradable household items to reusable personal care products, EcoShoppe curates a carefully selected collection of environmentally friendly alternatives to everyday products.
 
@@ -32,21 +32,21 @@ EcoShoppe is an innovative platform that bridges the gap between eco-conscious c
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎨 Responsive Frontend Design
+### Responsive Frontend Design
 - User-friendly, intuitive interface built with **HTML**, **CSS**, and **JavaScript**
 - Mobile-responsive design using **Bootstrap 4.5.2**
 - Smooth animations and hover effects for enhanced UX
 - Splash screen welcome animation
 
-### 🔐 Secure User Authentication
+### Secure User Authentication
 - User registration with encrypted password storage using **bcrypt**
 - Secure login functionality
 - Session management via **localStorage**
 - Account creation and login modal interface
 
-### 🛍️ Product Management
+### Product Management
 - Dynamic product catalog with 12+ eco-friendly products
 - Product cards displaying:
   - Product images and descriptions
@@ -55,26 +55,26 @@ EcoShoppe is an innovative platform that bridges the gap between eco-conscious c
 - Real-time product search functionality
 - Quantity selection controls (increment/decrement)
 
-### 🛒 Shopping Cart Functionality
+### Shopping Cart Functionality
 - Add products to cart with selected quantity
 - Persistent cart storage using **MongoDB**
 - User-specific cart management
 - Cart display and management page
 
-### 🔍 Product Discovery
+### Product Discovery
 - Intuitive search bar for quick product lookup
 - Case-insensitive search functionality
 - Filter products by keywords
 - Featured products section on homepage
 
-### 📱 Multi-Page Navigation
+### Multi-Page Navigation
 - Seamless navigation between pages
 - Consistent header and footer across all pages
 - Easy access to Home, Products, Cart, About Us, and Contact
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **HTML5** - Semantic markup and page structure
@@ -98,7 +98,7 @@ EcoShoppe is an innovative platform that bridges the gap between eco-conscious c
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 EcoShoppe-E-Commerce-Website/
@@ -122,7 +122,7 @@ EcoShoppe-E-Commerce-Website/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - **Node.js** (v14 or higher)
@@ -159,7 +159,7 @@ The server will run on `http://localhost:3113`
 
 ---
 
-## 💻 Usage
+## Usage
 
 ### Accessing the Application
 
@@ -190,7 +190,7 @@ Checkout (Future Enhancement)
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Authentication Routes
 
@@ -215,7 +215,7 @@ Checkout (Future Enhancement)
 
 ---
 
-## 📄 Pages & Navigation
+## Pages & Navigation
 
 ### 1. **Homepage (index.html / home.html)**
 - Splash screen animation
@@ -251,7 +251,7 @@ Checkout (Future Enhancement)
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### User Model
 
@@ -286,7 +286,7 @@ Each product includes:
 
 ---
 
-## 🎨 Styling Highlights
+## Styling Highlights
 
 ### Color Scheme
 - **Primary:** Green (#28a745) - Eco-friendly theme
@@ -302,7 +302,7 @@ Each product includes:
 
 ---
 
-## 🔐 Security Features
+## Security Features
 
 - **Password Encryption:** Bcrypt with salt rounds (10)
 - **Input Validation:** Basic client and server-side validation
@@ -311,7 +311,7 @@ Each product includes:
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 - [ ] Payment gateway integration (Stripe/PayPal)
 - [ ] Order tracking system
@@ -326,33 +326,7 @@ Each product includes:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📝 License
-
-This project is open source and available under the MIT License.
-
----
-
-## 📧 Contact & Support
-
-- **Email:** contact@ecoshoppe.com
-- **Phone:** +1 (234) 567-890
-- **Address:** 123 EcoShoppe Street, Green City, GA 12345
-
----
-
-## 🌟 Acknowledgments
+## Acknowledgments
 
 - Bootstrap framework for responsive design
 - MongoDB for reliable data persistence
